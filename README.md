@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-https://vuejs-counter-pro.netlify.app/
-=======
 # 🎯 Contador Interactivo Vue.js
->>>>>>> 1f10724 (Mejora de CSS, UX/UI y documentación completa del proyecto Vue.js)
+
+🌐 **Demo en vivo:** [https://vuejs-counter-pro.netlify.app/](https://vuejs-counter-pro.netlify.app/)
 
 Una aplicación de contador moderna y elegante desarrollada con **Vue 3 (Composition API)** y **Vite**, que demuestra las capacidades fundamentales y avanzadas del framework Vue.js.
 
@@ -12,7 +10,6 @@ Una aplicación de contador moderna y elegante desarrollada con **Vue 3 (Composi
 ## 📋 Descripción del Proyecto
 
 Este proyecto es una aplicación interactiva de contador que permite a los usuarios:
-
 - ✨ Incrementar y decrementar valores numéricos
 - ⭐ Guardar números favoritos en una lista
 - 🎨 Visualizar cambios con indicadores visuales dinámicos
@@ -24,110 +21,88 @@ La aplicación ha sido diseñada con un enfoque en **UX/UI moderna**, implementa
 
 ## 🚀 Conceptos de Vue.js Demostrados
 
-### 1. **Composition API**
-
+### 1. **Composition API** 
 Utilización de la API moderna de Vue 3 con `<script setup>`:
-
 ```vue
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed } from 'vue';
 </script>
 ```
 
 ### 2. **Reactividad con `ref()`**
-
 Manejo del estado reactivo para el contador y el array de favoritos:
-
 ```javascript
-const counter = ref(0);
-const arrayFavorite = ref([]);
+const counter = ref(0)
+const arrayFavorite = ref([])
 ```
 
 ### 3. **Computed Properties**
-
 Propiedades computadas para lógica derivada y optimización:
-
 ```javascript
 const bloquearBtnAdd = computed(() => {
-  const numSearch = arrayFavorite.value.find((num) => num === counter.value);
-  if (numSearch === 0) return true;
+  const numSearch = arrayFavorite.value.find(num => num === counter.value)
+  if (numSearch === 0) return true
   return numSearch ? true : false;
-});
+})
 ```
 
 ### 4. **Directivas de Vue**
 
 #### `v-bind` (`:class`)
-
 Binding dinámico de clases CSS basado en estado:
-
 ```vue
 <div :class="classCounter()">
 ```
 
 #### `v-on` (`@click`)
-
 Manejo de eventos del usuario:
-
 ```vue
 <button @click="increment">Aumentar</button>
 ```
 
 #### `v-for`
-
 Renderizado de listas dinámicas:
-
 ```vue
 <li v-for="(num, index) in arrayFavorite" :key="index">
 ```
 
 #### `v-if` / `v-else`
-
 Renderizado condicional de contenido:
-
 ```vue
 <div v-if="arrayFavorite.length > 0">
 <div v-else>
 ```
 
 #### `:disabled`
-
 Binding dinámico de atributos HTML:
-
 ```vue
 <button :disabled='bloquearBtnAdd'>
 ```
 
 ### 5. **Métodos y Funciones**
-
 Encapsulación de lógica de negocio:
-
 ```javascript
-const increment = () => counter.value++;
-const decrement = () => counter.value--;
+const increment = () => counter.value++
+const decrement = () => counter.value--
 const restart = () => {
   counter.value = 0;
-  arrayFavorite.value = [];
-};
-const add = () => arrayFavorite.value.push(counter.value);
+  arrayFavorite.value = []
+}
+const add = () => arrayFavorite.value.push(counter.value)
 ```
 
 ### 6. **Lógica Condicional Compleja**
-
 Función que retorna clases CSS dinámicamente:
-
 ```javascript
 const classCounter = () => {
-  if (counter.value === 0) return "zero";
-  if (counter.value < 0) return "negative";
-  if (counter.value > 0) return "positive";
+  if (counter.value === 0) return 'zero';
+  if (counter.value < 0) return 'negative'
+  if (counter.value > 0) return 'positive'
 };
 ```
 
 ### 7. **CSS Scoped**
-
 Estilos encapsulados por componente para evitar conflictos:
-
 ```vue
 <style scoped>
 /* Estilos específicos del componente */
@@ -139,14 +114,12 @@ Estilos encapsulados por componente para evitar conflictos:
 ## 🎨 Características de Diseño
 
 ### **Animaciones CSS**
-
 - **slideIn**: Entrada suave de la tarjeta principal
 - **pulse**: Efecto al cambiar el contador
 - **popIn**: Aparición de elementos favoritos
 - **fadeIn**: Transición suave de secciones
 
 ### **Efectos Visuales**
-
 - Gradientes en fondos y botones
 - Sombras con profundidad (box-shadow)
 - Glassmorphism (backdrop-filter: blur)
@@ -154,7 +127,6 @@ Estilos encapsulados por componente para evitar conflictos:
 - Efecto ripple en botones al hacer clic
 
 ### **Diseño Responsive**
-
 - Grid adaptable con `auto-fill` y `minmax`
 - Media queries para móviles (<640px)
 - Layout fluido con flexbox y grid
@@ -183,30 +155,25 @@ first-project/
 ## 🛠️ Instalación y Uso
 
 ### **Requisitos Previos**
-
-- Node.js 16+
+- Node.js 16+ 
 - npm o yarn
 
 ### **1. Clonar e Instalar**
-
 ```sh
 npm install
 ```
 
 ### **2. Desarrollo (Hot-Reload)**
-
 ```sh
 npm run dev
 ```
 
 ### **3. Compilar para Producción**
-
 ```sh
 npm run build
 ```
 
 ### **4. Preview de Producción**
-
 ```sh
 npm run preview
 ```
@@ -215,45 +182,40 @@ npm run preview
 
 ## 💡 Conocimientos Técnicos Aplicados
 
-| Concepto                    | Implementación                                |
-| --------------------------- | --------------------------------------------- |
-| **Composition API**         | `<script setup>` con importaciones explícitas |
-| **Reactividad**             | `ref()` para estado mutable                   |
-| **Propiedades Computadas**  | `computed()` para validaciones                |
-| **Event Handling**          | `@click` para interacciones                   |
-| **Renderizado Condicional** | `v-if`, `v-else` para UI dinámica             |
-| **Listas Dinámicas**        | `v-for` con `:key` único                      |
-| **Class Binding**           | `:class` dinámico basado en estado            |
-| **Props Binding**           | `:disabled` reactivo                          |
-| **CSS Avanzado**            | Animaciones, gradientes, grid, flexbox        |
-| **Vite**                    | Build tool rápido con HMR                     |
+| Concepto | Implementación |
+|----------|----------------|
+| **Composition API** | `<script setup>` con importaciones explícitas |
+| **Reactividad** | `ref()` para estado mutable |
+| **Propiedades Computadas** | `computed()` para validaciones |
+| **Event Handling** | `@click` para interacciones |
+| **Renderizado Condicional** | `v-if`, `v-else` para UI dinámica |
+| **Listas Dinámicas** | `v-for` con `:key` único |
+| **Class Binding** | `:class` dinámico basado en estado |
+| **Props Binding** | `:disabled` reactivo |
+| **CSS Avanzado** | Animaciones, gradientes, grid, flexbox |
+| **Vite** | Build tool rápido con HMR |
 
 ---
 
 ## 🎓 Conceptos Avanzados Implementados
 
 ### **Gestión de Estado Local**
-
 Manejo de estado complejo con múltiples `ref()` y `computed()`:
-
 - Control del valor del contador
 - Array dinámico de favoritos
 - Validación para evitar duplicados
 
 ### **Lógica de Negocio**
-
 - Validación de duplicados con `find()`
 - Manejo de caso especial para el valor `0`
 - Reinicio completo del estado
 
 ### **Optimización de Rendimiento**
-
 - Uso de `computed()` en lugar de métodos para cálculos costosos
 - Keys únicas en `v-for` para optimizar re-renders
 - CSS scoped para evitar conflictos de estilos
 
 ### **UX/UI Moderna**
-
 - Feedback visual inmediato con animaciones
 - Estados deshabilitados claros
 - Empty states informativos
@@ -268,7 +230,6 @@ Manejo de estado complejo con múltiples `ref()` y `computed()`:
 **Configuración:** Deshabilitar Vetur si está instalado
 
 ### Configuración Adicional
-
 Ver [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ---
@@ -286,7 +247,6 @@ Ver [Vite Configuration Reference](https://vitejs.dev/config/).
 
 **Proyecto de demostración de Vue.js**  
 Desarrollado para mostrar conocimientos en:
-
 - Vue 3 Composition API
 - JavaScript moderno (ES6+)
 - CSS avanzado y animaciones

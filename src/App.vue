@@ -89,7 +89,7 @@ const bloquearBtnAdd = computed(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 35%, #f4a261 70%, #e76f51 100%);
   padding: 20px;
 }
 
